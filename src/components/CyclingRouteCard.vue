@@ -49,10 +49,6 @@ const emit = defineEmits<{
       />
       <div class="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
 
-      <!-- Route number badge -->
-      <div :class="`absolute top-3 left-3 w-8 h-8 rounded-lg ${bgColor} flex items-center justify-center font-bold text-white text-sm shadow-sm`">
-        {{ index }}
-      </div>
       <!-- Favorite button -->
       <button
         class="absolute top-3 right-3 w-8 h-8 rounded-full bg-card/80 backdrop-blur-sm flex items-center justify-center hover:bg-card transition-colors"

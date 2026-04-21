@@ -22,9 +22,6 @@ import { Sparkles, MapPin, Navigation } from 'lucide-vue-next'
 
       <!-- Content overlay -->
       <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/20 backdrop-blur-sm border border-primary/20 mb-4">
-          <span class="text-2xl font-bold text-primary">图1</span>
-        </div>
         <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
           <span class="text-primary">精品</span>旅游路线
         </h1>
