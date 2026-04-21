@@ -15,7 +15,7 @@ import RoutesSection from './components/RoutesSection.vue'
               <circle cx="12" cy="10" r="3" />
             </svg>
           </div>
-          <span class="font-bold text-lg">社村地图</span>
+          <span class="font-bold text-lg">佘村地图</span>
         </div>
         <nav class="flex items-center gap-4 text-sm text-muted-foreground">
           <a href="#" class="hover:text-foreground transition-colors">首页</a>
@@ -35,7 +35,7 @@ import RoutesSection from './components/RoutesSection.vue'
     <!-- Footer -->
     <footer class="border-t border-border mt-16 py-8">
       <div class="max-w-5xl mx-auto px-4 text-center text-sm text-muted-foreground">
-        <p>社村地图 © 2026 — 发现美丽乡村，品味自然风光</p>
+        <p>佘村地图 © 2026 — 发现美丽乡村，品味自然风光</p>
       </div>
     </footer>
   </div>

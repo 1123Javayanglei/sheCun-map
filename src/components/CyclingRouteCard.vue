@@ -19,7 +19,7 @@ interface Props {
   isFavorite: boolean
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 const emit = defineEmits<{
   click: []
   favorite: []

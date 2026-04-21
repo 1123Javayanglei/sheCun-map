@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Mountain, Sparkles, MapPin, Navigation } from 'lucide-vue-next'
+import { Sparkles, MapPin, Navigation } from 'lucide-vue-next'
 </script>
 
 <template>
   <section class="relative overflow-hidden rounded-2xl mb-10 border border-border">
     <div class="relative h-[320px] md:h-[400px] overflow-hidden">
       <!-- Background image -->
-      <img src="/images/图1.png" alt="社村风景" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="/images/图1.png" alt="佘村风景" class="absolute inset-0 w-full h-full object-cover" />
       <!-- Dark overlay for readability -->
       <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />
       <!-- Decorative mountain SVG -->
@@ -29,7 +29,7 @@ import { Mountain, Sparkles, MapPin, Navigation } from 'lucide-vue-next'
           <span class="text-primary">精品</span>旅游路线
         </h1>
         <p class="text-muted-foreground text-sm md:text-base max-w-md">
-          探索社村最美的风景，发现隐藏的宝藏打卡地
+          探索佘村最美的风景，发现隐藏的宝藏打卡地
         </p>
         <!-- Stats -->
         <div class="flex items-center gap-6 mt-6">
@@ -47,7 +47,7 @@ import { Mountain, Sparkles, MapPin, Navigation } from 'lucide-vue-next'
       <!-- Navigation indicator -->
       <div class="absolute bottom-28 left-6 md:left-10 flex items-center gap-2 text-xs text-muted-foreground">
         <Navigation class="w-3.5 h-3.5" />
-        <span>社村全域</span>
+        <span>佘村全域</span>
       </div>
     </div>
   </section>

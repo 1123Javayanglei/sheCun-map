@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { MapPin, Star } from 'lucide-vue-next'
-import { ref } from 'vue'
+import { MapPin, Star, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { ref, watch } from 'vue'
 import ScenicRouteCard from './ScenicRouteCard.vue'
 import CyclingRouteCard from './CyclingRouteCard.vue'
 import FoodRouteCard from './FoodRouteCard.vue'
@@ -9,7 +9,7 @@ const scenic = {
   index: 2,
   title: '景点环线',
   subtitle: 'Scenic Loop',
-  description: '串联社村核心景点，漫步古村落，感受千年文化底蕴，适合全家出游。',
+  description: '串联佘村核心景点，漫步古村落，感受千年文化底蕴，适合全家出游。',
   images: ['/images/图1.png', '/images/图2.png', '/images/图3.png'],
   color: 'bg-scenic/10',
   bgColor: 'bg-scenic',
@@ -43,7 +43,7 @@ const food = {
   index: 4,
   title: '美食线',
   subtitle: 'Food Trail',
-  description: '品味地道农家菜，探访特色小吃摊，寻找舌尖上的社村，味蕾的极致享受。',
+  description: '品味地道农家菜，探访特色小吃摊，寻找舌尖上的佘村，味蕾的极致享受。',
   images: ['/images/图4.png'],
   color: 'bg-food/10',
   bgColor: 'bg-food',
@@ -59,6 +59,11 @@ const food = {
 const activeRoute = ref<number>(2)
 const favorites = ref<Set<number>>(new Set())
 const selectedRoute = ref<typeof scenic | typeof cycling | typeof food | null>(null)
+const modalImageIndex = ref(0)
+
+watch(selectedRoute, () => {
+  modalImageIndex.value = 0
+})
 
 function toggleFavorite(index: number) {
   const next = new Set(favorites.value)
@@ -74,6 +79,44 @@ function openRoute(route: typeof scenic) {
 
 function closeDetail() {
   selectedRoute.value = null
+}
+
+function prevModalImage() {
+  if (!selectedRoute.value || selectedRoute.value.images.length <= 1) return
+  modalImageIndex.value--
+  if (modalImageIndex.value < 0) modalImageIndex.value = selectedRoute.value.images.length - 1
+}
+
+function nextModalImage() {
+  if (!selectedRoute.value || selectedRoute.value.images.length <= 1) return
+  modalImageIndex.value++
+  if (modalImageIndex.value >= selectedRoute.value.images.length) modalImageIndex.value = 0
+}
+
+function onModalKeyDown(e: KeyboardEvent) {
+  if (e.key === 'ArrowLeft') prevModalImage()
+  if (e.key === 'ArrowRight') nextModalImage()
+  if (e.key === 'Escape') closeDetail()
+}
+
+// Touch swipe for image carousel
+const containerRef = ref<HTMLElement | null>(null)
+let touchStartX = 0
+let touchStartY = 0
+
+function onTouchStart(e: TouchEvent) {
+  touchStartX = e.touches[0].clientX
+  touchStartY = e.touches[0].clientY
+}
+
+function onTouchEnd(e: TouchEvent) {
+  const diffX = e.changedTouches[0].clientX - touchStartX
+  const diffY = e.changedTouches[0].clientY - touchStartY
+  // Only trigger swipe if horizontal movement dominates
+  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+    if (diffX > 0) prevModalImage()
+    else nextModalImage()
+  }
 }
 </script>
 
@@ -114,59 +157,99 @@ function closeDetail() {
     <!-- Route Detail Modal -->
     <div
       v-if="selectedRoute"
-      class="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in"
+      class="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center z-50 p-0 md:p-4 animate-fade-in"
       @click="closeDetail"
+      @keydown="onModalKeyDown"
     >
       <div
-        class="bg-card rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl animate-slide-up"
+        class="bg-card w-full h-full md:max-w-3xl md:max-h-[90vh] md:rounded-2xl overflow-hidden shadow-2xl animate-slide-up flex flex-col"
         @click.stop
       >
-        <!-- Modal header -->
-        <div class="relative h-48 overflow-hidden">
+        <!-- Image area - scrollable and swipeable -->
+        <div
+          ref="containerRef"
+          class="relative bg-accent overflow-auto flex-1 min-h-0"
+          @touchstart="onTouchStart"
+          @touchend="onTouchEnd"
+        >
           <img
-            :src="selectedRoute.images[0]"
+            :src="selectedRoute.images[modalImageIndex]"
             :alt="selectedRoute.title"
-            class="absolute inset-0 w-full h-full object-cover"
+            class="w-full h-auto block"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-          <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-card/60 backdrop-blur-sm flex items-center justify-center">
-            <span class="text-xl font-bold text-foreground">{{ selectedRoute.index }}</span>
-          </div>
-          <button
-            class="absolute top-4 right-4 w-8 h-8 rounded-full bg-card/60 backdrop-blur-sm flex items-center justify-center hover:bg-card/80 transition-colors"
-            @click="closeDetail"
-            aria-label="关闭"
-          >
-            <svg class="w-4 h-4 text-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
-          <div class="absolute bottom-4 left-4">
-            <h3 class="text-2xl font-bold text-foreground">{{ selectedRoute.title }}</h3>
-            <p class="text-sm text-muted-foreground">{{ selectedRoute.subtitle }}</p>
+
+          <!-- Carousel controls -->
+          <template v-if="selectedRoute.images.length > 1">
+            <button
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/70 backdrop-blur-sm flex items-center justify-center hover:bg-card transition-colors z-10"
+              @click.stop="prevModalImage"
+              aria-label="上一张"
+            >
+              <ChevronLeft class="w-6 h-6" />
+            </button>
+            <button
+              class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/70 backdrop-blur-sm flex items-center justify-center hover:bg-card transition-colors z-10"
+              @click.stop="nextModalImage"
+              aria-label="下一张"
+            >
+              <ChevronRight class="w-6 h-6" />
+            </button>
+            <!-- Dots -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+              <span
+                v-for="(_, i) in selectedRoute.images"
+                :key="i"
+                :class="[
+                  'block rounded-full transition-all shadow-sm',
+                  i === modalImageIndex ? 'w-2.5 h-2.5 bg-white' : 'w-2 h-2 bg-white/60'
+                ]"
+              />
+            </div>
+          </template>
+        </div>
+
+        <!-- Info bar overlay -->
+        <div class="relative px-4 py-3 bg-card border-b border-border flex-shrink-0">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-sm font-bold text-primary">{{ selectedRoute.index }}</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base font-bold text-foreground truncate">{{ selectedRoute.title }}</h3>
+              <p class="text-xs text-muted-foreground">{{ selectedRoute.subtitle }}</p>
+            </div>
+            <button
+              class="w-8 h-8 rounded-full hover:bg-accent flex items-center justify-center transition-colors flex-shrink-0"
+              @click="closeDetail"
+              aria-label="关闭"
+            >
+              <svg class="w-5 h-5 text-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
           </div>
         </div>
 
-        <!-- Modal body -->
-        <div class="p-6">
-          <p class="text-muted-foreground leading-relaxed mb-6">{{ selectedRoute.description }}</p>
+        <!-- Modal body - scrollable -->
+        <div class="p-5 overflow-auto flex-1 min-h-0">
+          <p class="text-sm text-muted-foreground leading-relaxed mb-5">{{ selectedRoute.description }}</p>
 
-          <div class="grid grid-cols-3 gap-4 mb-6">
+          <div class="grid grid-cols-3 gap-3 mb-5">
             <div class="text-center p-3 rounded-lg bg-accent">
-              <div class="text-lg font-bold">{{ selectedRoute.distance }}</div>
-              <div class="text-xs text-muted-foreground">路线长度</div>
+              <div class="text-base font-bold">{{ selectedRoute.distance }}</div>
+              <div class="text-xs text-muted-foreground mt-0.5">路线长度</div>
             </div>
             <div class="text-center p-3 rounded-lg bg-accent">
-              <div class="text-lg font-bold">{{ selectedRoute.duration }}</div>
-              <div class="text-xs text-muted-foreground">预计用时</div>
+              <div class="text-base font-bold">{{ selectedRoute.duration }}</div>
+              <div class="text-xs text-muted-foreground mt-0.5">预计用时</div>
             </div>
             <div class="text-center p-3 rounded-lg bg-accent">
-              <div class="text-lg font-bold">{{ selectedRoute.difficulty }}</div>
-              <div class="text-xs text-muted-foreground">难度等级</div>
+              <div class="text-base font-bold">{{ selectedRoute.difficulty }}</div>
+              <div class="text-xs text-muted-foreground mt-0.5">难度等级</div>
             </div>
           </div>
 
-          <div class="mb-6">
+          <div class="mb-5">
             <h4 class="text-sm font-semibold mb-3 flex items-center gap-2">
               <Star class="w-4 h-4 text-food" />
               途经景点
@@ -183,7 +266,7 @@ function closeDetail() {
             </div>
           </div>
 
-          <div class="flex flex-wrap gap-2 mb-6">
+          <div class="flex flex-wrap gap-2 mb-5">
             <span
               v-for="(tag, i) in selectedRoute.tags"
               :key="i"
