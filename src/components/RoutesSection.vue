@@ -157,18 +157,18 @@ function onTouchEnd(e: TouchEvent) {
     <!-- Route Detail Modal -->
     <div
       v-if="selectedRoute"
-      class="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-center justify-center z-50 p-0 md:p-4 animate-fade-in"
+      class="fixed inset-0 bg-foreground/50 backdrop-blur-sm flex items-start justify-center z-50 p-0 md:p-4 overflow-y-auto animate-fade-in"
       @click="closeDetail"
       @keydown="onModalKeyDown"
     >
       <div
-        class="bg-card w-full h-full md:max-w-3xl md:max-h-[90vh] md:rounded-2xl overflow-hidden shadow-2xl animate-slide-up flex flex-col"
+        class="bg-card w-full md:max-w-3xl md:rounded-2xl overflow-hidden shadow-2xl animate-slide-up flex flex-col my-8"
         @click.stop
       >
         <!-- Image area - scrollable and swipeable -->
         <div
           ref="containerRef"
-          class="relative bg-accent overflow-auto flex-1 min-h-0"
+          class="relative bg-accent"
           @touchstart="onTouchStart"
           @touchend="onTouchEnd"
         >

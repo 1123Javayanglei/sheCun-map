@@ -6,9 +6,9 @@ import { Sparkles, MapPin, Navigation } from 'lucide-vue-next'
   <section class="relative overflow-hidden rounded-2xl mb-10 border border-border">
     <div class="relative h-[320px] md:h-[400px] overflow-hidden">
       <!-- Background image -->
-      <img src="/images/图1.png" alt="佘村风景" class="absolute inset-0 w-full h-full object-cover" />
-      <!-- Dark overlay for readability -->
-      <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />
+      <img src="/images/图1.png" alt="佘村风景" class="absolute inset-0 w-full h-full object-cover blur-sm" />
+      <!-- White overlay for readability -->
+      <div class="absolute inset-0 bg-white/50" />
       <!-- Decorative mountain SVG -->
       <svg class="absolute bottom-0 left-0 right-0 w-full" viewBox="0 0 1200 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <path d="M0 200L150 120L300 160L450 80L600 140L750 60L900 120L1050 40L1200 100V200H0Z" fill="hsl(var(--primary))" fill-opacity="0.08" />
@@ -25,7 +25,7 @@ import { Sparkles, MapPin, Navigation } from 'lucide-vue-next'
         <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
           <span class="text-primary">精品</span>旅游路线
         </h1>
-        <p class="text-muted-foreground text-sm md:text-base max-w-md">
+        <p class="text-black text-sm md:text-base max-w-md">
           探索佘村最美的风景，发现隐藏的宝藏打卡地
         </p>
         <!-- Stats -->
