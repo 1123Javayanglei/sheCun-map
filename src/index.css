@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 97%;
+    --foreground: 220 20% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 18%;
+    --muted: 220 10% 94%;
+    --muted-foreground: 220 8% 50%;
+    --accent: 35 25% 93%;
+    --accent-foreground: 220 20% 18%;
+    --border: 220 15% 88%;
+    --input: 220 15% 92%;
+    --ring: 150 50% 40%;
+
+    --radius: 0.75rem;
+
+    /* Brand colors */
+    --primary: 150 50% 38%;
+    --primary-glow: 150 55% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 20% 92%;
+    --secondary-foreground: 150 50% 30%;
+
+    /* Route theme colors */
+    --scenic: 210 60% 50%;
+    --cycling: 145 55% 42%;
+    --food: 25 85% 55%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 40 20% 94%;
+    --card: 220 20% 14%;
+    --card-foreground: 40 20% 94%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 220 15% 18%;
+    --accent-foreground: 40 20% 94%;
+    --border: 220 15% 25%;
+    --input: 220 15% 20%;
+    --ring: 150 50% 45%;
+    --primary: 150 50% 45%;
+    --primary-glow: 150 55% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 150 40% 80%;
+    --scenic: 210 50% 58%;
+    --cycling: 145 50% 50%;
+    --food: 25 80% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
