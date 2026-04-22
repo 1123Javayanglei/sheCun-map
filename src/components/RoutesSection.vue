@@ -7,8 +7,8 @@ import RouteCard from './RouteCard.vue'
 const family = {
   index: 1,
   title: '亲子线',
-  subtitle: 'Family Fun Trail',
-  description: '和孩子一起，感受金陵古村的童趣与温情。从古银杏到爪爪牧场，从共享菜园到泥房子手作，全程充满亲子乐趣。',
+  subtitle: '亲子家庭之旅',
+  description: '和孩子一起，感受金陵古村的童趣与温情。从古银杏到爪爪牧场，从共享菜园到泥房子手作，全程充满亲子乐趣。建议时长：半天至一天（9:00-17:00）。',
   images: [
     '/images/poi/村口古银杏树/1.jpg',
     '/images/poi/村口古银杏树/2.jpg',
@@ -33,7 +33,7 @@ const family = {
   distance: '5km',
   duration: '半天至一天',
   difficulty: '简单',
-  spots: ['村口古银杏', '双龙湖栈道', '爪爪牧场', '共享菜园', '泥房子手作', '露营基地'],
+  spots: ['村口公园', '村口古银杏', '双龙湖栈道', '爪爪牧场', '共享菜园', '泥房子手作', '露营基地', '儿童游乐设施'],
   navigationUrl: '',
 }
 
@@ -41,8 +41,8 @@ const family = {
 const cycling = {
   index: 2,
   title: '骑行线',
-  subtitle: 'Cycling Trail',
-  description: '彩虹公路+环湖骑行道+山野穿越，一路风景一路自由。春秋两季最佳，春季有油菜花，秋季秋色怡人。',
+  subtitle: '金陵最美乡村骑行',
+  description: '彩虹公路+环湖骑行道+山野穿越，一路风景一路自由。春秋两季最佳，春季有油菜花，秋季秋色怡人。建议时长：2-3小时（骑行路段约8-10公里）。',
   images: [
     '/images/poi/油菜花海/1.jpg',
     '/images/poi/油菜花海/2.jpg',
@@ -65,7 +65,7 @@ const cycling = {
   distance: '8-10km',
   duration: '2-3小时',
   difficulty: '中等',
-  spots: ['彩虹公路', '双龙湖环湖道', '油菜花海', '山野路段', '野有also咖啡'],
+  spots: ['彩虹公路入口', '村口古银杏', '双龙湖环湖道', '佘村土菜馆', '油菜花海', '山野穿越', '野有also咖啡'],
   navigationUrl: '',
 }
 
@@ -73,8 +73,8 @@ const cycling = {
 const food = {
   index: 3,
   title: '美食线',
-  subtitle: 'Food Trail',
-  description: '从烟火集市到私房土菜，从咖啡甜点到特色火锅，吃遍佘村。库谷、懒屋、赤茧三家咖啡馆必打卡。',
+  subtitle: '寻味金陵古村',
+  description: '从烟火集市到私房土菜，从咖啡甜点到特色火锅，吃遍佘村。库谷、懒屋、赤茧三家咖啡馆必打卡。建议时长：一天（可分上下午，中午穿插休息）。',
   images: [
     '/images/poi/九龙广场/1.jpg',
     '/images/poi/九龙广场/2.jpg',
@@ -112,7 +112,7 @@ const food = {
   distance: '3km',
   duration: '一天',
   difficulty: '简单',
-  spots: ['艺术菜场', '梨园春晓', '库谷咖啡', '赤茧咖啡', '迷你兔甜品', '佘村火锅'],
+  spots: ['烟火佘村·艺术菜场', '九龙广场', '梨园春晓土菜馆', '库谷咖啡', '懒屋咖啡', '赤茧咖啡', '迷你兔蛋糕', '岁月静好土菜馆', '佘村火锅', '明室咖啡'],
   navigationUrl: '',
 }
 
@@ -120,8 +120,8 @@ const food = {
 const culture = {
   index: 4,
   title: '文化线',
-  subtitle: 'Cultural Heritage Trail',
-  description: '穿越明清，品读潘氏家族600年的辉煌与传承。参观明代古建筑群，体验汉服换装，感受金陵古风第一村的魅力。',
+  subtitle: '600年古村探秘',
+  description: '穿越明清，品读潘氏家族600年的辉煌与传承。参观明代古建筑群，体验汉服换装，感受金陵古风第一村的魅力。建议时长：3-4小时。',
   images: [
     '/images/poi/佘村明清代古建筑群/1.jpg',
     '/images/poi/佘村明清代古建筑群/2.jpg',
@@ -149,7 +149,7 @@ const culture = {
   distance: '2km',
   duration: '3-4小时',
   difficulty: '简单',
-  spots: ['古银杏树', '佘村古井', '潘氏住宅', '潘氏宗祠', '李家大院', '熹·游记汉服馆'],
+  spots: ['村口古银杏', '佘村古井', '潘氏住宅', '潘氏宗祠', '熹·游记汉服体验馆', '古建筑群周边', '李家大院', '明室咖啡'],
   navigationUrl: '',
 }
 
@@ -157,8 +157,8 @@ const culture = {
 const ecology = {
   index: 5,
   title: '生态线',
-  subtitle: 'Eco Nature Trail',
-  description: '山水之间，做一日陶渊明式的归园田居人。晨雾双龙湖、芦苇荡观鸟、龙池徒步、露营发呆，享受山野慢生活。',
+  subtitle: '山野慢生活之旅',
+  description: '山水之间，做一日陶渊明式的归园田居人。晨雾双龙湖、芦苇荡观鸟、龙池徒步、露营发呆，享受山野慢生活。建议时长：一天（建议9:00出发，傍晚收官）。',
   images: [
     '/images/poi/龙池/1.jpg',
     '/images/poi/龙池/2.jpg',
@@ -184,7 +184,7 @@ const ecology = {
   distance: '6km',
   duration: '一天',
   difficulty: '简单',
-  spots: ['双龙湖晨雾', '芦苇荡观鸟', '龙池徒步', '露营基地', '泥房子手作', '山间古宅咖啡'],
+  spots: ['村口公园', '双龙湖晨雾', '芦苇荡观鸟', '油菜花海', '龙池徒步', '露营基地', '泥房子手作', '山间古宅咖啡', '夕阳下的双龙湖'],
   navigationUrl: '',
 }
 
