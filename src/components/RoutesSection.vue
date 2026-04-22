@@ -328,7 +328,7 @@ function onTouchEnd(e: TouchEvent) {
           <img
             :src="selectedRoute.images[modalImageIndex]"
             :alt="selectedRoute.title"
-            class="w-full h-auto block"
+            class="w-full h-auto block max-h-[600px] object-contain mx-auto"
           />
 
           <!-- Carousel controls -->
