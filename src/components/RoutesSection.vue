@@ -1,67 +1,197 @@
 <script setup lang="ts">
 import { MapPin, Star, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { ref, watch } from 'vue'
-import ScenicRouteCard from './ScenicRouteCard.vue'
-import CyclingRouteCard from './CyclingRouteCard.vue'
-import FoodRouteCard from './FoodRouteCard.vue'
+import RouteCard from './RouteCard.vue'
 
-const scenic = {
-  index: 2,
-  title: '景点环线',
-  subtitle: 'Scenic Loop',
-  description: '串联佘村核心景点，漫步古村落，感受千年文化底蕴，适合全家出游。',
-  images: ['/images/图1.png', '/images/图2.png', '/images/图3.png'],
-  color: 'bg-scenic/10',
-  bgColor: 'bg-scenic',
-  borderColor: 'border-scenic/30',
-  textColor: 'text-scenic',
-  tags: ['古村落', '文化遗迹', '摄影打卡'],
-  distance: '8.5km',
-  duration: '半天',
+// 路线①：亲子线
+const family = {
+  index: 1,
+  title: '亲子线',
+  subtitle: 'Family Fun Trail',
+  description: '和孩子一起，感受金陵古村的童趣与温情。从古银杏到爪爪牧场，从共享菜园到泥房子手作，全程充满亲子乐趣。',
+  images: [
+    '/images/poi/村口古银杏树/1.jpg',
+    '/images/poi/村口古银杏树/2.jpg',
+    '/images/poi/村口古银杏树/3.jpg',
+    '/images/poi/爪爪牧场/1.jpg',
+    '/images/poi/泥房子ni house/1.jpg',
+    '/images/poi/泥房子ni house/2.jpg',
+    '/images/poi/泥房子ni house/3.jpg',
+    '/images/poi/共享菜园/1.jpg',
+    '/images/poi/露天野营基地/1.jpg',
+    '/images/poi/露天野营基地/2.jpg',
+    '/images/poi/露天野营基地/3.jpg',
+    '/images/poi/儿童游乐设施/1.jpg',
+    '/images/poi/儿童游乐设施/2.jpg',
+    '/images/poi/儿童游乐设施/3.jpg',
+  ],
+  color: 'bg-pink-500/10',
+  bgColor: 'bg-pink-500',
+  borderColor: 'border-pink-500/30',
+  textColor: 'text-pink-600',
+  tags: ['亲子互动', '萌宠体验', '自然教育'],
+  distance: '5km',
+  duration: '半天至一天',
   difficulty: '简单',
-  spots: ['古祠堂', '千年古树', '观景台', '民俗博物馆'],
-  navigationUrl: 'https://m.amap.com/navigation/carmap/__r=31.981616971469396,118.93030911684038,%E6%B1%9F%E5%AE%81%E4%BD%98%E6%9D%91,31.982305,118.929565,%E4%BD%98%E9%A6%99%E5%92%96%E5%95%A1,,0,0,,,,%2Bf80basxS37a%2BgBbMZ4K%2FPwLcOLl5gpFT%2Bh6uDD0CPi9vmJnZN0Bfjf8lA4DNlTkG7ZNPc6aOjZlyYto3NGevyLpgk3aOBbvg5%2Fbd%2F8rweEK9Es8HrdpK7nUNuJAgx4X,31.978855%7C31.983233,118.930607%7C118.930782,%E7%88%AA%E7%88%AA%E7%89%A7%E5%9C%BA%7C%E5%B0%8F%E6%BB%A1%E7%B3%96%E6%B0%B4%E9%93%BA&src=app_share&callnative=1&callapp=0&userRelationToken=a4aa80fe3da511f19ca600163e081a5a1&share_type=url&share_from=drive_CarResultPage&share_from_type=AJX&share_bizParams=%7B%22naviDistance%22%3A4%2C%22share_content%22%3A%22route%22%2C%22trigger%22%3A%22click%22%2C%22end_poiid%22%3A%22B0KDLS8BBZ%22%7D&share_lastClickSpm=amap.P00016.0.D092&share_bid=t9bg16n9c58jfs3m3fcmhgonaiagjmg0907147a&saddr=118.93030911684038,31.981616971469396,%E6%B1%9F%E5%AE%81%E4%BD%98%E6%9D%91&daddr=118.929565,31.982305,%E4%BD%98%E9%A6%99%E5%92%96%E5%95%A1&sort=dist&shareParam=%2Bf80basxS37a%2BgBbMZ4K%2FPwLcOLl5gpFT%2Bh6uDD0CPi9vmJnZN0Bfjf8lA4DNlTkG7ZNPc6aOjZlyYto3NGevyLpgk3aOBbvg5%2Fbd%2F8rweEK9Es8HrdpK7nUNuJAgx4X&viaaddr=118.930607%7C118.930782,31.978855%7C31.983233,%E7%88%AA%E7%88%AA%E7%89%A7%E5%9C%BA%7C%E5%B0%8F%E6%BB%A1%E7%B3%96%E6%B0%B4%E9%93%BA',
+  spots: ['村口古银杏', '双龙湖栈道', '爪爪牧场', '共享菜园', '泥房子手作', '露营基地'],
+  navigationUrl: '',
 }
 
+// 路线②：骑行线
 const cycling = {
-  index: 3,
+  index: 2,
   title: '骑行线',
   subtitle: 'Cycling Trail',
-  description: '穿越山水田园的骑行路线，沿途风景如画，呼吸自然清新空气，活力满分。',
-  images: ['/images/图3.png'],
+  description: '彩虹公路+环湖骑行道+山野穿越，一路风景一路自由。春秋两季最佳，春季有油菜花，秋季秋色怡人。',
+  images: [
+    '/images/poi/油菜花海/1.jpg',
+    '/images/poi/油菜花海/2.jpg',
+    '/images/poi/油菜花海/3.jpg',
+    '/images/poi/佘村土菜馆/1.jpg',
+    '/images/poi/佘村土菜馆/2.jpg',
+    '/images/poi/佘村土菜馆/3.jpg',
+    '/images/poi/野有also coffee/1.jpg',
+    '/images/poi/野有also coffee/2.jpg',
+    '/images/poi/野有also coffee/3.jpg',
+    '/images/poi/龙池/1.jpg',
+    '/images/poi/龙池/2.jpg',
+    '/images/poi/龙池/3.jpg',
+  ],
   color: 'bg-cycling/10',
   bgColor: 'bg-cycling',
   borderColor: 'border-cycling/30',
   textColor: 'text-cycling',
   tags: ['户外运动', '田园风光', '健康养生'],
-  distance: '15km',
-  duration: '一天',
+  distance: '8-10km',
+  duration: '2-3小时',
   difficulty: '中等',
-  spots: ['竹林步道', '溪谷桥', '观景亭', '茶园'],
+  spots: ['彩虹公路', '双龙湖环湖道', '油菜花海', '山野路段', '野有also咖啡'],
   navigationUrl: '',
 }
 
+// 路线③：美食线
 const food = {
-  index: 4,
+  index: 3,
   title: '美食线',
   subtitle: 'Food Trail',
-  description: '品味地道农家菜，探访特色小吃摊，寻找舌尖上的佘村，味蕾的极致享受。',
-  images: ['/images/图4.png'],
+  description: '从烟火集市到私房土菜，从咖啡甜点到特色火锅，吃遍佘村。库谷、懒屋、赤茧三家咖啡馆必打卡。',
+  images: [
+    '/images/poi/九龙广场/1.jpg',
+    '/images/poi/九龙广场/2.jpg',
+    '/images/poi/九龙广场/3.jpg',
+    '/images/poi/梨园春晓土菜馆/1.jpg',
+    '/images/poi/梨园春晓土菜馆/2.jpg',
+    '/images/poi/梨园春晓土菜馆/3.jpg',
+    '/images/poi/库谷咖啡/1.jpg',
+    '/images/poi/库谷咖啡/2.jpg',
+    '/images/poi/库谷咖啡/3.jpg',
+    '/images/poi/懒屋咖啡/1.jpg',
+    '/images/poi/懒屋咖啡/2.jpg',
+    '/images/poi/懒屋咖啡/3.jpg',
+    '/images/poi/赤茧咖啡/1.jpg',
+    '/images/poi/赤茧咖啡/2.jpg',
+    '/images/poi/赤茧咖啡/3.jpg',
+    '/images/poi/迷你兔蛋糕/1.jpg',
+    '/images/poi/迷你兔蛋糕/2.jpg',
+    '/images/poi/迷你兔蛋糕/3.jpg',
+    '/images/poi/岁月静好土菜馆/1.jpg',
+    '/images/poi/岁月静好土菜馆/2.jpg',
+    '/images/poi/岁月静好土菜馆/3.jpg',
+    '/images/poi/佘村火锅/1.jpg',
+    '/images/poi/佘村火锅/2.jpg',
+    '/images/poi/佘村火锅/3.jpg',
+    '/images/poi/明室咖啡/1.jpg',
+    '/images/poi/明室咖啡/2.jpg',
+    '/images/poi/明室咖啡/3.jpg',
+  ],
   color: 'bg-food/10',
   bgColor: 'bg-food',
   borderColor: 'border-food/30',
   textColor: 'text-food',
-  tags: ['农家菜', '特色小吃', '美食地图'],
-  distance: '5km',
-  duration: '半天',
+  tags: ['农家菜', '特色小吃', '咖啡打卡'],
+  distance: '3km',
+  duration: '一天',
   difficulty: '简单',
-  spots: ['老街小吃', '农家宴', '手工豆腐坊', '茶庄'],
+  spots: ['艺术菜场', '梨园春晓', '库谷咖啡', '赤茧咖啡', '迷你兔甜品', '佘村火锅'],
   navigationUrl: '',
 }
 
-const activeRoute = ref<number>(2)
+// 路线④：文化线
+const culture = {
+  index: 4,
+  title: '文化线',
+  subtitle: 'Cultural Heritage Trail',
+  description: '穿越明清，品读潘氏家族600年的辉煌与传承。参观明代古建筑群，体验汉服换装，感受金陵古风第一村的魅力。',
+  images: [
+    '/images/poi/佘村明清代古建筑群/1.jpg',
+    '/images/poi/佘村明清代古建筑群/2.jpg',
+    '/images/poi/佘村明清代古建筑群/3.jpg',
+    '/images/poi/潘氏住宅/1.jpg',
+    '/images/poi/潘氏住宅/2.jpg',
+    '/images/poi/潘氏住宅/3.jpg',
+    '/images/poi/潘氏宗祠/1.jpg',
+    '/images/poi/潘氏宗祠/2.jpg',
+    '/images/poi/潘氏宗祠/3.jpg',
+    '/images/poi/李家大院/1.jpg',
+    '/images/poi/李家大院/2.jpg',
+    '/images/poi/李家大院/3.jpg',
+    '/images/poi/熹·游记汉服体验馆/1.jpg',
+    '/images/poi/熹·游记汉服体验馆/2.jpg',
+    '/images/poi/村口古银杏树/1.jpg',
+    '/images/poi/村口古银杏树/2.jpg',
+    '/images/poi/村口古银杏树/3.jpg',
+  ],
+  color: 'bg-amber-600/10',
+  bgColor: 'bg-amber-600',
+  borderColor: 'border-amber-600/30',
+  textColor: 'text-amber-700',
+  tags: ['古建筑', '非遗文化', '汉服体验'],
+  distance: '2km',
+  duration: '3-4小时',
+  difficulty: '简单',
+  spots: ['古银杏树', '佘村古井', '潘氏住宅', '潘氏宗祠', '李家大院', '熹·游记汉服馆'],
+  navigationUrl: '',
+}
+
+// 路线⑤：生态线
+const ecology = {
+  index: 5,
+  title: '生态线',
+  subtitle: 'Eco Nature Trail',
+  description: '山水之间，做一日陶渊明式的归园田居人。晨雾双龙湖、芦苇荡观鸟、龙池徒步、露营发呆，享受山野慢生活。',
+  images: [
+    '/images/poi/龙池/1.jpg',
+    '/images/poi/龙池/2.jpg',
+    '/images/poi/龙池/3.jpg',
+    '/images/poi/露营基地/1.jpg',
+    '/images/poi/露营基地/2.jpg',
+    '/images/poi/露营基地/3.jpg',
+    '/images/poi/泥房子ni house/1.jpg',
+    '/images/poi/泥房子ni house/2.jpg',
+    '/images/poi/泥房子ni house/3.jpg',
+    '/images/poi/山间古宅咖啡馆/1.jpg',
+    '/images/poi/山间古宅咖啡馆/2.jpg',
+    '/images/poi/山间古宅咖啡馆/3.jpg',
+    '/images/poi/油菜花海/1.jpg',
+    '/images/poi/油菜花海/2.jpg',
+    '/images/poi/油菜花海/3.jpg',
+  ],
+  color: 'bg-emerald-600/10',
+  bgColor: 'bg-emerald-600',
+  borderColor: 'border-emerald-600/30',
+  textColor: 'text-emerald-700',
+  tags: ['自然风光', '徒步观鸟', '露营体验'],
+  distance: '6km',
+  duration: '一天',
+  difficulty: '简单',
+  spots: ['双龙湖晨雾', '芦苇荡观鸟', '龙池徒步', '露营基地', '泥房子手作', '山间古宅咖啡'],
+  navigationUrl: '',
+}
+
+const activeRoute = ref<number>(1)
 const favorites = ref<Set<number>>(new Set())
-const selectedRoute = ref<typeof scenic | typeof cycling | typeof food | null>(null)
+type RouteType = typeof family | typeof cycling | typeof food | typeof culture | typeof ecology
+const selectedRoute = ref<RouteType | null>(null)
 const modalImageIndex = ref(0)
 
 watch(selectedRoute, () => {
@@ -75,7 +205,7 @@ function toggleFavorite(index: number) {
   favorites.value = next
 }
 
-function openRoute(route: typeof scenic) {
+function openRoute(route: RouteType) {
   activeRoute.value = route.index
   selectedRoute.value = route
 }
@@ -134,32 +264,46 @@ function onTouchEnd(e: TouchEvent) {
     <div class="flex items-center justify-between mb-6">
       <div>
         <h2 class="text-xl font-bold">选择你的路线</h2>
-        <p class="text-sm text-muted-foreground mt-1">三条特色路线，总有一条适合你</p>
+        <p class="text-sm text-muted-foreground mt-1">五条特色路线，总有一条适合你</p>
       </div>
     </div>
 
     <!-- Cards -->
-    <div class="flex flex-col md:flex-row gap-5 mb-6">
-      <ScenicRouteCard
-        v-bind="scenic"
-        :is-active="activeRoute === scenic.index"
-        :is-favorite="favorites.has(scenic.index)"
-        @click="openRoute(scenic)"
-        @favorite="toggleFavorite(scenic.index)"
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+      <RouteCard
+        v-bind="family"
+        :is-active="activeRoute === family.index"
+        :is-favorite="favorites.has(family.index)"
+        @click="openRoute(family)"
+        @favorite="toggleFavorite(family.index)"
       />
-      <CyclingRouteCard
+      <RouteCard
         v-bind="cycling"
         :is-active="activeRoute === cycling.index"
         :is-favorite="favorites.has(cycling.index)"
         @click="openRoute(cycling)"
         @favorite="toggleFavorite(cycling.index)"
       />
-      <FoodRouteCard
+      <RouteCard
         v-bind="food"
         :is-active="activeRoute === food.index"
         :is-favorite="favorites.has(food.index)"
         @click="openRoute(food)"
         @favorite="toggleFavorite(food.index)"
+      />
+      <RouteCard
+        v-bind="culture"
+        :is-active="activeRoute === culture.index"
+        :is-favorite="favorites.has(culture.index)"
+        @click="openRoute(culture)"
+        @favorite="toggleFavorite(culture.index)"
+      />
+      <RouteCard
+        v-bind="ecology"
+        :is-active="activeRoute === ecology.index"
+        :is-favorite="favorites.has(ecology.index)"
+        @click="openRoute(ecology)"
+        @favorite="toggleFavorite(ecology.index)"
       />
     </div>
 

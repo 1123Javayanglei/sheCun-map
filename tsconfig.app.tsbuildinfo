@@ -1,1 +1,1 @@
-{"root":["./src/env.d.ts","./src/main.ts","./src/app.vue","./src/components/cyclingroutecard.vue","./src/components/foodroutecard.vue","./src/components/herosection.vue","./src/components/routessection.vue","./src/components/scenicroutecard.vue"],"version":"5.6.3"}
+{"root":["./src/env.d.ts","./src/main.ts","./src/app.vue","./src/components/cyclingroutecard.vue","./src/components/foodroutecard.vue","./src/components/herosection.vue","./src/components/routecard.vue","./src/components/routessection.vue","./src/components/scenicroutecard.vue"],"version":"5.6.3"}

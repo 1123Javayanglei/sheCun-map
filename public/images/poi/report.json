@@ -1,0 +1,387 @@
+{
+  "total": 31,
+  "success_count": 27,
+  "no_image_count": 3,
+  "fail_count": 1,
+  "output_dir": "/Users/yang/Project/gitee/sheCun-map/public/images/poi",
+  "results": [
+    {
+      "name": "村口公园",
+      "poi_id": "B0FFI9UHAP",
+      "poi_name": "村口公园",
+      "address": "上佘路与李家路交叉口南200米",
+      "image_count": 0,
+      "images": [],
+      "status": "no_image"
+    },
+    {
+      "name": "村口古银杏树",
+      "poi_id": "B0FFL59F2Z",
+      "poi_name": "银杏",
+      "address": "钟山名胜风景区内中山陵园风景区",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "双龙湖",
+      "poi_id": "B0FFFEDIJC",
+      "poi_name": "双龙湖",
+      "address": "两江新区",
+      "image_count": 0,
+      "images": [],
+      "status": "no_image"
+    },
+    {
+      "name": "爪爪牧场",
+      "poi_id": "B0L2FS1E7A",
+      "poi_name": "爪爪牧场",
+      "address": "上佘路2号",
+      "image_count": 1,
+      "images": [
+        "1.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "共享菜园",
+      "poi_id": "B0LB2ALGBY",
+      "poi_name": "共享菜园果蔬采摘",
+      "address": "科新路28号",
+      "image_count": 1,
+      "images": [
+        "1.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "泥房子ni house",
+      "poi_id": "B0KGTDDYS3",
+      "poi_name": "泥房子ni house(手作)",
+      "address": "东山街道佘村社区建设村52号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "露天野营基地",
+      "poi_id": "B0KUA71008",
+      "poi_name": "莲乡时光·团建·聚会·露营(西埂莲乡店)",
+      "address": "西埂莲乡景区房车营地旁",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "儿童游乐设施",
+      "poi_id": "B001909ZGL",
+      "poi_name": "南京雨花台风景区游乐园",
+      "address": "共青团路215-1号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "彩虹公路",
+      "poi_id": "B0FFGQ84HB",
+      "poi_name": "彩虹路",
+      "address": "建邺区",
+      "image_count": 0,
+      "images": [],
+      "status": "no_image"
+    },
+    {
+      "name": "佘村土菜馆",
+      "poi_id": "B0FFHR91XF",
+      "poi_name": "佘村土菜馆",
+      "address": "上佘路佘山水库旁",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "油菜花海",
+      "poi_id": "B0FFFDUCR9",
+      "poi_name": "水墨大埝旅游区",
+      "address": "岔琥路",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "野有also coffee",
+      "poi_id": "B0LGTHUHQV",
+      "poi_name": "野有also coffee",
+      "address": "东山街道佘村社区七甲村42号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "烟火佘村艺术菜场",
+      "poi_id": "B0FFHR91XF",
+      "poi_name": "佘村土菜馆",
+      "address": "上佘路佘山水库旁",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "九龙广场",
+      "poi_id": "B0G36HLUOD",
+      "poi_name": "九龙广场",
+      "address": "上佘路与李家路交叉口南180米",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "梨园春晓土菜馆",
+      "poi_id": "B0FFKSHVJM",
+      "poi_name": "梨园春晓土菜馆",
+      "address": "佘村社区建设村65号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "库谷咖啡",
+      "poi_id": "B0J3F7EMVR",
+      "poi_name": "库谷咖啡",
+      "address": "佘村建设村65号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "懒屋咖啡",
+      "poi_id": "B0L2YRWMQ7",
+      "poi_name": "懒屋咖啡",
+      "address": "东山街道佘村社区建设村10号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "赤茧咖啡",
+      "poi_id": "B0LADS8UIZ",
+      "poi_name": "赤茧咖啡",
+      "address": "东山街道佘村建设村73号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "迷你兔蛋糕",
+      "poi_id": "B0FFMG0KCA",
+      "poi_name": "迷你兔创意烘焙",
+      "address": "天元东路819号天景山商业中心8幢121室",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "岁月静好土菜馆",
+      "poi_id": "B0FFKR1GAG",
+      "poi_name": "岁月静好土菜馆(佘村店)",
+      "address": "东山街道佘村社区孙家村24号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "佘村火锅",
+      "poi_id": "B0L2FC2I0A",
+      "poi_name": "佘村火锅",
+      "address": "建设村50号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "明室咖啡",
+      "poi_id": "B0L2U1FQSE",
+      "poi_name": "明室咖啡",
+      "address": "上佘路1号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "佘村古井",
+      "status": "fail",
+      "error": "未找到匹配的 POI"
+    },
+    {
+      "name": "潘氏住宅",
+      "poi_id": "B00190AGHO",
+      "poi_name": "潘氏住宅",
+      "address": "上佘路潘氏宗祠(佘村社区卫生服务站西北)附近",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "潘氏宗祠",
+      "poi_id": "B00190AGHN",
+      "poi_name": "潘氏宗祠",
+      "address": "上佘路东山街道佘村社区幼儿园",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "熹·游记汉服体验馆",
+      "poi_id": "B0KGNUZ56W",
+      "poi_name": "熹·游记汉服体验馆",
+      "address": "佘村社区王家村125号",
+      "image_count": 2,
+      "images": [
+        "1.jpg",
+        "2.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "李家大院",
+      "poi_id": "B0FFI5R8G7",
+      "poi_name": "李家大院土菜馆(板桥店)",
+      "address": "新城大街雄风路169号朝阳西苑",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "佘村明清代古建筑群",
+      "poi_id": "B0J3MS6KUN",
+      "poi_name": "佘村明清代建筑群",
+      "address": "上佘路1号",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "龙池",
+      "poi_id": "B0FFFDS1QJ",
+      "poi_name": "龙池",
+      "address": "六合区",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "露营基地",
+      "poi_id": "B00190CLWA",
+      "poi_name": "九龙湖公园",
+      "address": "苏源大道与清水亭西路交叉口东",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    },
+    {
+      "name": "山间古宅咖啡馆",
+      "poi_id": "B0FFK2M52T",
+      "poi_name": "肉桂咖啡馆",
+      "address": "宁溧路堂悦花园6幢12室",
+      "image_count": 3,
+      "images": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+      ],
+      "status": "success"
+    }
+  ]
+}

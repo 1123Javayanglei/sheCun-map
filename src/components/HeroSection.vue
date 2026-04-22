@@ -32,11 +32,11 @@ import { Sparkles, MapPin, Navigation } from 'lucide-vue-next'
         <div class="flex items-center gap-6 mt-6">
           <div class="flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin class="w-4 h-4 text-primary" />
-            <span>3条精选路线</span>
+            <span>5条精选路线</span>
           </div>
           <div class="flex items-center gap-2 text-sm text-muted-foreground">
             <Sparkles class="w-4 h-4 text-food" />
-            <span>热门景点全覆盖</span>
+            <span>116家特色商户</span>
           </div>
         </div>
       </div>
