@@ -20,6 +20,7 @@ const scenic = {
   duration: '半天',
   difficulty: '简单',
   spots: ['古祠堂', '千年古树', '观景台', '民俗博物馆'],
+  navigationUrl: 'https://m.amap.com/navigation/carmap/__r=31.981616971469396,118.93030911684038,%E6%B1%9F%E5%AE%81%E4%BD%98%E6%9D%91,31.982305,118.929565,%E4%BD%98%E9%A6%99%E5%92%96%E5%95%A1,,0,0,,,,%2Bf80basxS37a%2BgBbMZ4K%2FPwLcOLl5gpFT%2Bh6uDD0CPi9vmJnZN0Bfjf8lA4DNlTkG7ZNPc6aOjZlyYto3NGevyLpgk3aOBbvg5%2Fbd%2F8rweEK9Es8HrdpK7nUNuJAgx4X,31.978855%7C31.983233,118.930607%7C118.930782,%E7%88%AA%E7%88%AA%E7%89%A7%E5%9C%BA%7C%E5%B0%8F%E6%BB%A1%E7%B3%96%E6%B0%B4%E9%93%BA&src=app_share&callnative=1&callapp=0&userRelationToken=a4aa80fe3da511f19ca600163e081a5a1&share_type=url&share_from=drive_CarResultPage&share_from_type=AJX&share_bizParams=%7B%22naviDistance%22%3A4%2C%22share_content%22%3A%22route%22%2C%22trigger%22%3A%22click%22%2C%22end_poiid%22%3A%22B0KDLS8BBZ%22%7D&share_lastClickSpm=amap.P00016.0.D092&share_bid=t9bg16n9c58jfs3m3fcmhgonaiagjmg0907147a&saddr=118.93030911684038,31.981616971469396,%E6%B1%9F%E5%AE%81%E4%BD%98%E6%9D%91&daddr=118.929565,31.982305,%E4%BD%98%E9%A6%99%E5%92%96%E5%95%A1&sort=dist&shareParam=%2Bf80basxS37a%2BgBbMZ4K%2FPwLcOLl5gpFT%2Bh6uDD0CPi9vmJnZN0Bfjf8lA4DNlTkG7ZNPc6aOjZlyYto3NGevyLpgk3aOBbvg5%2Fbd%2F8rweEK9Es8HrdpK7nUNuJAgx4X&viaaddr=118.930607%7C118.930782,31.978855%7C31.983233,%E7%88%AA%E7%88%AA%E7%89%A7%E5%9C%BA%7C%E5%B0%8F%E6%BB%A1%E7%B3%96%E6%B0%B4%E9%93%BA',
 }
 
 const cycling = {
@@ -37,6 +38,7 @@ const cycling = {
   duration: '一天',
   difficulty: '中等',
   spots: ['竹林步道', '溪谷桥', '观景亭', '茶园'],
+  navigationUrl: '',
 }
 
 const food = {
@@ -54,6 +56,7 @@ const food = {
   duration: '半天',
   difficulty: '简单',
   spots: ['老街小吃', '农家宴', '手工豆腐坊', '茶庄'],
+  navigationUrl: '',
 }
 
 const activeRoute = ref<number>(2)
@@ -79,6 +82,12 @@ function openRoute(route: typeof scenic) {
 
 function closeDetail() {
   selectedRoute.value = null
+}
+
+function startNavigation() {
+  if (selectedRoute.value && 'navigationUrl' in selectedRoute.value && selectedRoute.value.navigationUrl) {
+    window.open(selectedRoute.value.navigationUrl, '_blank')
+  }
 }
 
 function prevModalImage() {
@@ -279,7 +288,7 @@ function onTouchEnd(e: TouchEvent) {
           <div class="flex gap-3">
             <button
               :class="`flex-1 py-2.5 rounded-lg ${selectedRoute.bgColor} text-white font-medium text-sm hover:opacity-90 transition-opacity`"
-              @click="closeDetail"
+              @click="startNavigation"
             >
               开始导航
             </button>
