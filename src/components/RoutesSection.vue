@@ -34,7 +34,7 @@ const family = {
   duration: '半天至一天',
   difficulty: '简单',
   spots: ['村口公园', '村口古银杏', '双龙湖栈道', '爪爪牧场', '共享菜园', '泥房子手作', '露营基地', '儿童游乐设施'],
-  navigationUrl: '',
+  navigationUrl: 'https://surl.amap.com/4FVOMuS11iV',
 }
 
 // 路线②：骑行线
@@ -66,7 +66,7 @@ const cycling = {
   duration: '2-3小时',
   difficulty: '中等',
   spots: ['彩虹公路入口', '村口古银杏', '双龙湖环湖道', '佘村土菜馆', '油菜花海', '山野穿越', '野有also咖啡'],
-  navigationUrl: '',
+  navigationUrl: 'https://surl.amap.com/4ja8RFofaqg',
 }
 
 // 路线③：美食线
@@ -113,7 +113,7 @@ const food = {
   duration: '一天',
   difficulty: '简单',
   spots: ['烟火佘村·艺术菜场', '九龙广场', '梨园春晓土菜馆', '库谷咖啡', '懒屋咖啡', '赤茧咖啡', '迷你兔蛋糕', '岁月静好土菜馆', '佘村火锅', '明室咖啡'],
-  navigationUrl: '',
+  navigationUrl: 'https://surl.amap.com/4pWzsHozgYW',
 }
 
 // 路线④：文化线
@@ -150,7 +150,7 @@ const culture = {
   duration: '3-4小时',
   difficulty: '简单',
   spots: ['村口古银杏', '佘村古井', '潘氏住宅', '潘氏宗祠', '熹·游记汉服体验馆', '古建筑群周边', '李家大院', '明室咖啡'],
-  navigationUrl: '',
+  navigationUrl: 'https://surl.amap.com/4xTuhLQmbyx',
 }
 
 // 路线⑤：生态线
@@ -185,7 +185,7 @@ const ecology = {
   duration: '一天',
   difficulty: '简单',
   spots: ['村口公园', '双龙湖晨雾', '芦苇荡观鸟', '油菜花海', '龙池徒步', '露营基地', '泥房子手作', '山间古宅咖啡', '夕阳下的双龙湖'],
-  navigationUrl: '',
+  navigationUrl: 'https://surl.amap.com/4CZwI5A1bdAq',
 }
 
 const activeRoute = ref<number>(1)
