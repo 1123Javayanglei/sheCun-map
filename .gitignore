@@ -1,4 +1,5 @@
 node_modules
 dist
-./idea
+.idea
 dist.zip
+.DS_Store
