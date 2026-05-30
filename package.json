@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build && npm run zip",
+    "build": "vue-tsc -b && vite build",
     "zip": "cd dist && zip -r ../dist.zip . && cd ..",
     "preview": "vite preview"
   },
